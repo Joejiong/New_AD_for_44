@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<WebApplication1.Models.Item>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
 <!DOCTYPE html>
@@ -26,6 +26,7 @@
     @foreach (var item in Model) {
         <tr>
             <td>
+                @*@Html.CheckBoxFor(m => m.item.Selected)*@
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>
             <td>
