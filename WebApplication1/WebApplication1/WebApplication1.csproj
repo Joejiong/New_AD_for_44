@@ -220,6 +220,8 @@
     </Compile>
     <Compile Include="Controllers\CRUDExampleControllers\ItemsController.cs" />
     <Compile Include="Controllers\DepartmentControllers\EmployeeControllers\EmployeeController.cs" />
+    <Compile Include="Controllers\DepartmentControllers\HeadControllers\HeadController.cs" />
+    <Compile Include="Controllers\DepartmentControllers\RepresentativeControllers\RepresentativeController.cs" />
     <Compile Include="Controllers\StoreControllers\AccountController.cs" />
     <Compile Include="Controllers\DepartmentControllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -363,8 +365,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\DepartmentControllers\HeadControllers\" />
-    <Folder Include="Controllers\DepartmentControllers\RepresentativeControllers\" />
     <Folder Include="Views\ClerkJoe\" />
     <Folder Include="Views\DepartmentViews\" />
     <Folder Include="Views\StoreViews\" />
