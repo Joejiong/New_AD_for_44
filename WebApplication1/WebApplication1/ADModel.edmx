@@ -1,0 +1,1190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ADModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ADModelStoreContainer">
+    <EntitySet Name="StockAdjustments" EntityType="ADModel.Store.StockAdjustments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DisbursementDetails" EntityType="ADModel.Store.DisbursementDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RetrievalDetails" EntityType="ADModel.Store.RetrievalDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Purchases" EntityType="ADModel.Store.Purchases" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Suppliers1" EntityType="ADModel.Store.Suppliers1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departments1" EntityType="ADModel.Store.Departments1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employees1" EntityType="ADModel.Store.Employees1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CollectionPoints" EntityType="ADModel.Store.CollectionPoints" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Requisitions" EntityType="ADModel.Store.Requisitions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequisitionDetails" EntityType="ADModel.Store.RequisitionDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Catalogues" EntityType="ADModel.Store.Catalogues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PurchaseOrderDetails" EntityType="ADModel.Store.PurchaseOrderDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListOfUndisburses" EntityType="ADModel.Store.ListOfUndisburses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Disbursements" EntityType="ADModel.Store.Disbursements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Inventories" EntityType="ADModel.Store.Inventories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Retrievals" EntityType="ADModel.Store.Retrievals" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PurchaseSupplier" Association="ADModel.Store.PurchaseSupplier">
+      <End Role="Purchase" EntitySet="Purchases" />
+      <End Role="Supplier" EntitySet="Suppliers1" />
+    </AssociationSet>
+    <AssociationSet Name="CatalogueInventory" Association="ADModel.Store.CatalogueInventory">
+      <End Role="Catalogue" EntitySet="Catalogues" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentCollectionPoint" Association="ADModel.Store.DepartmentCollectionPoint">
+      <End Role="Department" EntitySet="Departments1" />
+      <End Role="CollectionPoint" EntitySet="CollectionPoints" />
+    </AssociationSet>
+    <AssociationSet Name="DisbursementDetailListOfUndisburse" Association="ADModel.Store.DisbursementDetailListOfUndisburse">
+      <End Role="DisbursementDetail" EntitySet="DisbursementDetails" />
+      <End Role="ListOfUndisburse" EntitySet="ListOfUndisburses" />
+    </AssociationSet>
+    <AssociationSet Name="CatalogueRequisitionDetail" Association="ADModel.Store.CatalogueRequisitionDetail">
+      <End Role="Catalogue" EntitySet="Catalogues" />
+      <End Role="RequisitionDetail" EntitySet="RequisitionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="CataloguePurchaseOrderDetail" Association="ADModel.Store.CataloguePurchaseOrderDetail">
+      <End Role="Catalogue" EntitySet="Catalogues" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="CatalogueDisbursementDetail" Association="ADModel.Store.CatalogueDisbursementDetail">
+      <End Role="DisbursementDetail" EntitySet="DisbursementDetails" />
+      <End Role="Catalogue" EntitySet="Catalogues" />
+    </AssociationSet>
+    <AssociationSet Name="RetrievalDetailCatalogue" Association="ADModel.Store.RetrievalDetailCatalogue">
+      <End Role="RetrievalDetail" EntitySet="RetrievalDetails" />
+      <End Role="Catalogue" EntitySet="Catalogues" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentEmployee" Association="ADModel.Store.DepartmentEmployee">
+      <End Role="Department" EntitySet="Departments1" />
+      <End Role="Employee" EntitySet="Employees1" />
+    </AssociationSet>
+    <AssociationSet Name="PurchasePurchaseOrderDetail" Association="ADModel.Store.PurchasePurchaseOrderDetail">
+      <End Role="Purchase" EntitySet="Purchases" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="DisbursementDisbursementDetail" Association="ADModel.Store.DisbursementDisbursementDetail">
+      <End Role="Disbursement" EntitySet="Disbursements" />
+      <End Role="DisbursementDetail" EntitySet="DisbursementDetails" />
+    </AssociationSet>
+    <AssociationSet Name="CatalogueStockAdjustment" Association="ADModel.Store.CatalogueStockAdjustment">
+      <End Role="Catalogue" EntitySet="Catalogues" />
+      <End Role="StockAdjustment" EntitySet="StockAdjustments" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentRequisition" Association="ADModel.Store.DepartmentRequisition">
+      <End Role="Department" EntitySet="Departments1" />
+      <End Role="Requisition" EntitySet="Requisitions" />
+    </AssociationSet>
+    <AssociationSet Name="RequisitionId" Association="ADModel.Store.RequisitionId">
+      <End Role="Requisition" EntitySet="Requisitions" />
+      <End Role="RequisitionDetail" EntitySet="RequisitionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentDisbursement" Association="ADModel.Store.DepartmentDisbursement">
+      <End Role="Department" EntitySet="Departments1" />
+      <End Role="Disbursement" EntitySet="Disbursements" />
+    </AssociationSet>
+    <AssociationSet Name="RetrievalRetrievalDetail" Association="ADModel.Store.RetrievalRetrievalDetail">
+      <End Role="Retrieval" EntitySet="Retrievals" />
+      <End Role="RetrievalDetail" EntitySet="RetrievalDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="StockAdjustments">
+    <Key>
+      <PropertyRef Name="StockAdjustmentId" />
+    </Key>
+    <Property Name="StockAdjustmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateRequest" Type="datetime" Nullable="false" />
+    <Property Name="ItemNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Discrepancy" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateOfDecision" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="DateOfRequest" Type="datetime" Nullable="false" />
+    <Property Name="ApproveBy" Type="bigint" Nullable="false" />
+    <Property Name="SubmittedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DisbursementDetails">
+    <Key>
+      <PropertyRef Name="DisbursementDetNo" />
+    </Key>
+    <Property Name="DisbursementDetNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QtyRequested" Type="int" Nullable="false" />
+    <Property Name="QtyReceived" Type="int" Nullable="false" />
+    <Property Name="Reason" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ItemNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DisbursementNo" Type="int" Nullable="false" />
+    <Property Name="Catalogue_ItemNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RetrievalDetails">
+    <Key>
+      <PropertyRef Name="RetrievalDetId" />
+    </Key>
+    <Property Name="RetrievalDetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemNo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RetrievedQty" Type="int" Nullable="false" />
+    <Property Name="RequiredQty" Type="int" Nullable="false" />
+    <Property Name="RetrievalId" Type="int" Nullable="false" />
+    <Property Name="Catalogue_ItemNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="PurchasePONo" />
+    </Key>
+    <Property Name="PurchasePONo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderedBy" Type="int" Nullable="false" />
+    <Property Name="OrderedDate" Type="datetime" Nullable="false" />
+    <Property Name="DecidedBy" Type="int" Nullable="false" />
+    <Property Name="DecisionDate" Type="datetime" Nullable="false" />
+    <Property Name="TotalAmount" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Supplier_SupplierCode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Suppliers1">
+    <Key>
+      <PropertyRef Name="SupplierCode" />
+    </Key>
+    <Property Name="SupplierCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNo" Type="int" Nullable="false" />
+    <Property Name="FaxNo" Type="int" Nullable="false" />
+    <Property Name="SupplierAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GstNo" Type="int" Nullable="false" />
+    <Property Name="Year" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments1">
+    <Key>
+      <PropertyRef Name="DeptCode" />
+    </Key>
+    <Property Name="DeptCode" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeptName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNo" Type="int" Nullable="false" />
+    <Property Name="FaxNo" Type="int" Nullable="false" />
+    <Property Name="DeptHead" Type="int" Nullable="false" />
+    <Property Name="CollectionId" Type="int" Nullable="false" />
+    <Property Name="DeptRep" Type="int" Nullable="false" />
+    <Property Name="CollectionPoint_CollectionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees1">
+    <Key>
+      <PropertyRef Name="EmployeeNo" />
+    </Key>
+    <Property Name="EmployeeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DeptCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmployeeStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Role" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentDeptCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CollectionPoints">
+    <Key>
+      <PropertyRef Name="CollectionId" />
+    </Key>
+    <Property Name="CollectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TimeSlot" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Requisitions">
+    <Key>
+      <PropertyRef Name="RequisitionId" />
+    </Key>
+    <Property Name="RequisitionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeNo" Type="int" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateOfSubmitted" Type="datetime" Nullable="false" />
+    <Property Name="DateOfDecision" Type="datetime" Nullable="false" />
+    <Property Name="DecidedBy" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DeptCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequisitionDetails">
+    <Key>
+      <PropertyRef Name="RequisitionDetailId" />
+    </Key>
+    <Property Name="RequisitionDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Qty" Type="int" Nullable="false" />
+    <Property Name="RequisitionId" Type="int" Nullable="false" />
+    <Property Name="Catalogue_ItemNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Catalogues">
+    <Key>
+      <PropertyRef Name="ItemNo" />
+    </Key>
+    <Property Name="ItemNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReorderLevel" Type="int" Nullable="false" />
+    <Property Name="ReorderQty" Type="int" Nullable="false" />
+    <Property Name="UnitMeasure" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SupPrice1" Type="int" Nullable="false" />
+    <Property Name="SupPrice2" Type="int" Nullable="false" />
+    <Property Name="SupPrice3" Type="int" Nullable="false" />
+    <Property Name="StockAdjustment_StockAdjustmentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderDetails">
+    <Key>
+      <PropertyRef Name="PurchaseOrderDetailId" />
+    </Key>
+    <Property Name="PurchaseOrderDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Qty" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="PurchasePONo" Type="int" Nullable="false" />
+    <Property Name="Catalogue_ItemNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListOfUndisburses">
+    <Key>
+      <PropertyRef Name="ListOfUndisburseId" />
+    </Key>
+    <Property Name="ListOfUndisburseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisbursementDetNo" Type="int" Nullable="false" />
+    <Property Name="DisbursementDetail_DisbursementDetNo" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Disbursements">
+    <Key>
+      <PropertyRef Name="DisbursementNo" />
+    </Key>
+    <Property Name="DisbursementNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeNo" Type="int" Nullable="false" />
+    <Property Name="DisbursementDate" Type="datetime" Nullable="false" />
+    <Property Name="DeptCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inventories">
+    <Key>
+      <PropertyRef Name="StockId" />
+    </Key>
+    <Property Name="StockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Balance" Type="int" Nullable="false" />
+    <Property Name="Qty" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="AmountChange" Type="int" Nullable="false" />
+    <Property Name="EmployeeNo" Type="int" Nullable="false" />
+    <Property Name="SupplierCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Catalogue_ItemNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Retrievals">
+    <Key>
+      <PropertyRef Name="RetrievalId" />
+    </Key>
+    <Property Name="RetrievalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeNo" Type="int" Nullable="false" />
+    <Property Name="RetrievalDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="PurchaseSupplier">
+    <End Role="Purchase" Type="ADModel.Store.Purchases" Multiplicity="*" />
+    <End Role="Supplier" Type="ADModel.Store.Suppliers1" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierCode" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="Supplier_SupplierCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CatalogueInventory">
+    <End Role="Catalogue" Type="ADModel.Store.Catalogues" Multiplicity="1" />
+    <End Role="Inventory" Type="ADModel.Store.Inventories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catalogue">
+        <PropertyRef Name="ItemNo" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="Catalogue_ItemNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmentCollectionPoint">
+    <End Role="Department" Type="ADModel.Store.Departments1" Multiplicity="*" />
+    <End Role="CollectionPoint" Type="ADModel.Store.CollectionPoints" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CollectionPoint">
+        <PropertyRef Name="CollectionId" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="CollectionPoint_CollectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DisbursementDetailListOfUndisburse">
+    <End Role="DisbursementDetail" Type="ADModel.Store.DisbursementDetails" Multiplicity="0..1" />
+    <End Role="ListOfUndisburse" Type="ADModel.Store.ListOfUndisburses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DisbursementDetail">
+        <PropertyRef Name="DisbursementDetNo" />
+      </Principal>
+      <Dependent Role="ListOfUndisburse">
+        <PropertyRef Name="DisbursementDetail_DisbursementDetNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CatalogueRequisitionDetail">
+    <End Role="Catalogue" Type="ADModel.Store.Catalogues" Multiplicity="1" />
+    <End Role="RequisitionDetail" Type="ADModel.Store.RequisitionDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catalogue">
+        <PropertyRef Name="ItemNo" />
+      </Principal>
+      <Dependent Role="RequisitionDetail">
+        <PropertyRef Name="Catalogue_ItemNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CataloguePurchaseOrderDetail">
+    <End Role="Catalogue" Type="ADModel.Store.Catalogues" Multiplicity="1" />
+    <End Role="PurchaseOrderDetail" Type="ADModel.Store.PurchaseOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catalogue">
+        <PropertyRef Name="ItemNo" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="Catalogue_ItemNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CatalogueDisbursementDetail">
+    <End Role="DisbursementDetail" Type="ADModel.Store.DisbursementDetails" Multiplicity="*" />
+    <End Role="Catalogue" Type="ADModel.Store.Catalogues" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Catalogue">
+        <PropertyRef Name="ItemNo" />
+      </Principal>
+      <Dependent Role="DisbursementDetail">
+        <PropertyRef Name="Catalogue_ItemNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RetrievalDetailCatalogue">
+    <End Role="RetrievalDetail" Type="ADModel.Store.RetrievalDetails" Multiplicity="*" />
+    <End Role="Catalogue" Type="ADModel.Store.Catalogues" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Catalogue">
+        <PropertyRef Name="ItemNo" />
+      </Principal>
+      <Dependent Role="RetrievalDetail">
+        <PropertyRef Name="Catalogue_ItemNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmentEmployee">
+    <End Role="Department" Type="ADModel.Store.Departments1" Multiplicity="1" />
+    <End Role="Employee" Type="ADModel.Store.Employees1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DeptCode" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentDeptCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PurchasePurchaseOrderDetail">
+    <End Role="Purchase" Type="ADModel.Store.Purchases" Multiplicity="1" />
+    <End Role="PurchaseOrderDetail" Type="ADModel.Store.PurchaseOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase">
+        <PropertyRef Name="PurchasePONo" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="PurchasePONo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DisbursementDisbursementDetail">
+    <End Role="Disbursement" Type="ADModel.Store.Disbursements" Multiplicity="1" />
+    <End Role="DisbursementDetail" Type="ADModel.Store.DisbursementDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disbursement">
+        <PropertyRef Name="DisbursementNo" />
+      </Principal>
+      <Dependent Role="DisbursementDetail">
+        <PropertyRef Name="DisbursementNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CatalogueStockAdjustment">
+    <End Role="Catalogue" Type="ADModel.Store.Catalogues" Multiplicity="*" />
+    <End Role="StockAdjustment" Type="ADModel.Store.StockAdjustments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="StockAdjustment">
+        <PropertyRef Name="StockAdjustmentId" />
+      </Principal>
+      <Dependent Role="Catalogue">
+        <PropertyRef Name="StockAdjustment_StockAdjustmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmentRequisition">
+    <End Role="Department" Type="ADModel.Store.Departments1" Multiplicity="1" />
+    <End Role="Requisition" Type="ADModel.Store.Requisitions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DeptCode" />
+      </Principal>
+      <Dependent Role="Requisition">
+        <PropertyRef Name="DeptCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RequisitionId">
+    <End Role="Requisition" Type="ADModel.Store.Requisitions" Multiplicity="1" />
+    <End Role="RequisitionDetail" Type="ADModel.Store.RequisitionDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requisition">
+        <PropertyRef Name="RequisitionId" />
+      </Principal>
+      <Dependent Role="RequisitionDetail">
+        <PropertyRef Name="RequisitionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmentDisbursement">
+    <End Role="Department" Type="ADModel.Store.Departments1" Multiplicity="1" />
+    <End Role="Disbursement" Type="ADModel.Store.Disbursements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DeptCode" />
+      </Principal>
+      <Dependent Role="Disbursement">
+        <PropertyRef Name="DeptCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RetrievalRetrievalDetail">
+    <End Role="Retrieval" Type="ADModel.Store.Retrievals" Multiplicity="1" />
+    <End Role="RetrievalDetail" Type="ADModel.Store.RetrievalDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Retrieval">
+        <PropertyRef Name="RetrievalId" />
+      </Principal>
+      <Dependent Role="RetrievalDetail">
+        <PropertyRef Name="RetrievalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ADModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ADModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StockAdjustments" EntityType="ADModel.StockAdjustment" />
+          <EntitySet Name="DisbursementDetails" EntityType="ADModel.DisbursementDetail" />
+          <EntitySet Name="RetrievalDetails" EntityType="ADModel.RetrievalDetail" />
+          <EntitySet Name="Purchases" EntityType="ADModel.Purchase" />
+          <EntitySet Name="Suppliers1" EntityType="ADModel.Supplier" />
+          <EntitySet Name="Departments1" EntityType="ADModel.Department" />
+          <EntitySet Name="Employees1" EntityType="ADModel.Employee" />
+          <EntitySet Name="CollectionPoints" EntityType="ADModel.CollectionPoint" />
+          <EntitySet Name="Requisitions" EntityType="ADModel.Requisition" />
+          <EntitySet Name="RequisitionDetails" EntityType="ADModel.RequisitionDetail" />
+          <EntitySet Name="Catalogues" EntityType="ADModel.Catalogue" />
+          <EntitySet Name="PurchaseOrderDetails" EntityType="ADModel.PurchaseOrderDetail" />
+          <EntitySet Name="ListOfUndisburses" EntityType="ADModel.ListOfUndisburse" />
+          <EntitySet Name="Disbursements" EntityType="ADModel.Disbursement" />
+          <EntitySet Name="Inventories" EntityType="ADModel.Inventory" />
+          <AssociationSet Name="PurchaseSupplier" Association="ADModel.PurchaseSupplier">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="Supplier" EntitySet="Suppliers1" />
+          </AssociationSet>
+          <AssociationSet Name="CatalogueInventory" Association="ADModel.CatalogueInventory">
+            <End Role="Catalogue" EntitySet="Catalogues" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="DepartmentCollectionPoint" Association="ADModel.DepartmentCollectionPoint">
+            <End Role="Department" EntitySet="Departments1" />
+            <End Role="CollectionPoint" EntitySet="CollectionPoints" />
+          </AssociationSet>
+          <AssociationSet Name="DisbursementDetailListOfUndisburse" Association="ADModel.DisbursementDetailListOfUndisburse">
+            <End Role="DisbursementDetail" EntitySet="DisbursementDetails" />
+            <End Role="ListOfUndisburse" EntitySet="ListOfUndisburses" />
+          </AssociationSet>
+          <AssociationSet Name="CatalogueRequisitionDetail" Association="ADModel.CatalogueRequisitionDetail">
+            <End Role="Catalogue" EntitySet="Catalogues" />
+            <End Role="RequisitionDetail" EntitySet="RequisitionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="CataloguePurchaseOrderDetail" Association="ADModel.CataloguePurchaseOrderDetail">
+            <End Role="Catalogue" EntitySet="Catalogues" />
+            <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="CatalogueDisbursementDetail" Association="ADModel.CatalogueDisbursementDetail">
+            <End Role="DisbursementDetail" EntitySet="DisbursementDetails" />
+            <End Role="Catalogue" EntitySet="Catalogues" />
+          </AssociationSet>
+          <EntitySet Name="Retrievals" EntityType="ADModel.Retrieval" />
+          <AssociationSet Name="RetrievalDetailCatalogue" Association="ADModel.RetrievalDetailCatalogue">
+            <End Role="RetrievalDetail" EntitySet="RetrievalDetails" />
+            <End Role="Catalogue" EntitySet="Catalogues" />
+          </AssociationSet>
+          <AssociationSet Name="DepartmentEmployee" Association="ADModel.DepartmentEmployee">
+            <End Role="Department" EntitySet="Departments1" />
+            <End Role="Employee" EntitySet="Employees1" />
+          </AssociationSet>
+          <AssociationSet Name="PurchasePurchaseOrderDetail" Association="ADModel.PurchasePurchaseOrderDetail">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="DisbursementDisbursementDetail" Association="ADModel.DisbursementDisbursementDetail">
+            <End Role="Disbursement" EntitySet="Disbursements" />
+            <End Role="DisbursementDetail" EntitySet="DisbursementDetails" />
+          </AssociationSet>
+          <AssociationSet Name="CatalogueStockAdjustment" Association="ADModel.CatalogueStockAdjustment">
+            <End Role="Catalogue" EntitySet="Catalogues" />
+            <End Role="StockAdjustment" EntitySet="StockAdjustments" />
+          </AssociationSet>
+          <AssociationSet Name="DepartmentRequisition" Association="ADModel.DepartmentRequisition">
+            <End Role="Department" EntitySet="Departments1" />
+            <End Role="Requisition" EntitySet="Requisitions" />
+          </AssociationSet>
+          <AssociationSet Name="RequisitionId" Association="ADModel.RequisitionId">
+            <End Role="Requisition" EntitySet="Requisitions" />
+            <End Role="RequisitionDetail" EntitySet="RequisitionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="DepartmentDisbursement" Association="ADModel.DepartmentDisbursement">
+            <End Role="Department" EntitySet="Departments1" />
+            <End Role="Disbursement" EntitySet="Disbursements" />
+          </AssociationSet>
+          <AssociationSet Name="RetrievalRetrievalDetail" Association="ADModel.RetrievalRetrievalDetail">
+            <End Role="Retrieval" EntitySet="Retrievals" />
+            <End Role="RetrievalDetail" EntitySet="RetrievalDetails" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="StockAdjustment">
+          <Key>
+            <PropertyRef Name="StockAdjustmentId" />
+          </Key>
+          <Property Name="StockAdjustmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateRequest" Type="DateTime" Nullable="false" />
+          <Property Name="ItemNo" Type="String" Nullable="false" />
+          <Property Name="Discrepancy" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <Property Name="DateOfDecision" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="DateOfRequest" Type="DateTime" Nullable="false" />
+          <Property Name="ApproveBy" Type="Int64" Nullable="false" />
+          <Property Name="SubmittedBy" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catalogue" Relationship="ADModel.CatalogueStockAdjustment" FromRole="StockAdjustment" ToRole="Catalogue" />
+        </EntityType>
+        <EntityType Name="DisbursementDetail">
+          <Key>
+            <PropertyRef Name="DisbursementDetNo" />
+          </Key>
+          <Property Name="DisbursementDetNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QtyRequested" Type="Int32" Nullable="false" />
+          <Property Name="QtyReceived" Type="Int32" Nullable="false" />
+          <Property Name="Reason" Type="String" Nullable="true" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <NavigationProperty Name="ListOfUndisburse" Relationship="ADModel.DisbursementDetailListOfUndisburse" FromRole="DisbursementDetail" ToRole="ListOfUndisburse" />
+          <Property Name="ItemNo" Type="String" Nullable="false" />
+          <NavigationProperty Name="Catalogue" Relationship="ADModel.CatalogueDisbursementDetail" FromRole="DisbursementDetail" ToRole="Catalogue" />
+          <NavigationProperty Name="Disbursement" Relationship="ADModel.DisbursementDisbursementDetail" FromRole="DisbursementDetail" ToRole="Disbursement" />
+          <Property Name="DisbursementNo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RetrievalDetail">
+          <Key>
+            <PropertyRef Name="RetrievalDetId" />
+          </Key>
+          <Property Name="RetrievalDetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemNo" Type="String" Nullable="true" />
+          <Property Name="RetrievedQty" Type="Int32" Nullable="false" />
+          <Property Name="RequiredQty" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catalogue" Relationship="ADModel.RetrievalDetailCatalogue" FromRole="RetrievalDetail" ToRole="Catalogue" />
+          <NavigationProperty Name="Retrieval" Relationship="ADModel.RetrievalRetrievalDetail" FromRole="RetrievalDetail" ToRole="Retrieval" />
+          <Property Name="RetrievalId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="PurchasePONo" />
+          </Key>
+          <Property Name="PurchasePONo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierCode" Type="String" Nullable="false" />
+          <Property Name="OrderedBy" Type="Int32" Nullable="false" />
+          <Property Name="OrderedDate" Type="DateTime" Nullable="false" />
+          <Property Name="DecidedBy" Type="Int32" Nullable="false" />
+          <Property Name="DecisionDate" Type="DateTime" Nullable="false" />
+          <Property Name="TotalAmount" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <NavigationProperty Name="Supplier" Relationship="ADModel.PurchaseSupplier" FromRole="Purchase" ToRole="Supplier" />
+          <NavigationProperty Name="PurchaseOrderDetails" Relationship="ADModel.PurchasePurchaseOrderDetail" FromRole="Purchase" ToRole="PurchaseOrderDetail" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierCode" />
+          </Key>
+          <Property Name="SupplierCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierName" Type="String" Nullable="false" />
+          <Property Name="ContactName" Type="String" Nullable="false" />
+          <Property Name="PhoneNo" Type="Int32" Nullable="false" />
+          <Property Name="FaxNo" Type="Int32" Nullable="false" />
+          <Property Name="SupplierAddress" Type="String" Nullable="false" />
+          <Property Name="GstNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Purchase" Relationship="ADModel.PurchaseSupplier" FromRole="Supplier" ToRole="Purchase" />
+          <Property Name="Year" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DeptCode" />
+          </Key>
+          <Property Name="DeptCode" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptName" Type="String" Nullable="false" />
+          <Property Name="ContactName" Type="String" Nullable="false" />
+          <Property Name="PhoneNo" Type="Int32" Nullable="false" />
+          <Property Name="FaxNo" Type="Int32" Nullable="false" />
+          <Property Name="DeptHead" Type="Int32" Nullable="false" />
+          <Property Name="CollectionId" Type="Int32" Nullable="false" />
+          <Property Name="DeptRep" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CollectionPoint" Relationship="ADModel.DepartmentCollectionPoint" FromRole="Department" ToRole="CollectionPoint" />
+          <NavigationProperty Name="Employees" Relationship="ADModel.DepartmentEmployee" FromRole="Department" ToRole="Employee" />
+          <NavigationProperty Name="Requisitions" Relationship="ADModel.DepartmentRequisition" FromRole="Department" ToRole="Requisition" />
+          <NavigationProperty Name="Disbursements" Relationship="ADModel.DepartmentDisbursement" FromRole="Department" ToRole="Disbursement" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeNo" />
+          </Key>
+          <Property Name="EmployeeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" Nullable="false" />
+          <Property Name="DeptCode" Type="String" Nullable="true" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="EmployeeStatus" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="Role" Type="String" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="ADModel.DepartmentEmployee" FromRole="Employee" ToRole="Department" />
+          <Property Name="DepartmentDeptCode" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CollectionPoint">
+          <Key>
+            <PropertyRef Name="CollectionId" />
+          </Key>
+          <Property Name="CollectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" Nullable="false" />
+          <Property Name="TimeSlot" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="ADModel.DepartmentCollectionPoint" FromRole="CollectionPoint" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Requisition">
+          <Key>
+            <PropertyRef Name="RequisitionId" />
+          </Key>
+          <Property Name="RequisitionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeNo" Type="Int32" Nullable="false" />
+          <Property Name="Comments" Type="String" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <Property Name="DateOfSubmitted" Type="DateTime" Nullable="false" />
+          <Property Name="DateOfDecision" Type="DateTime" Nullable="false" />
+          <Property Name="DecidedBy" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" Nullable="true" />
+          <NavigationProperty Name="Department" Relationship="ADModel.DepartmentRequisition" FromRole="Requisition" ToRole="Department" />
+          <Property Name="DeptCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="RequisitionDetails" Relationship="ADModel.RequisitionId" FromRole="Requisition" ToRole="RequisitionDetail" />
+        </EntityType>
+        <EntityType Name="RequisitionDetail">
+          <Key>
+            <PropertyRef Name="RequisitionDetailId" />
+          </Key>
+          <Property Name="RequisitionDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemNo" Type="String" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catalogue" Relationship="ADModel.CatalogueRequisitionDetail" FromRole="RequisitionDetail" ToRole="Catalogue" />
+          <NavigationProperty Name="Requisition" Relationship="ADModel.RequisitionId" FromRole="RequisitionDetail" ToRole="Requisition" />
+          <Property Name="RequisitionId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Catalogue">
+          <Key>
+            <PropertyRef Name="ItemNo" />
+          </Key>
+          <Property Name="ItemNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="ReorderLevel" Type="Int32" Nullable="false" />
+          <Property Name="ReorderQty" Type="Int32" Nullable="false" />
+          <Property Name="UnitMeasure" Type="String" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" />
+          <Property Name="SupPrice1" Type="Int32" Nullable="false" />
+          <Property Name="SupPrice2" Type="Int32" Nullable="false" />
+          <Property Name="SupPrice3" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StockAdjustment" Relationship="ADModel.CatalogueStockAdjustment" FromRole="Catalogue" ToRole="StockAdjustment" />
+        </EntityType>
+        <EntityType Name="PurchaseOrderDetail">
+          <Key>
+            <PropertyRef Name="PurchaseOrderDetailId" />
+          </Key>
+          <Property Name="PurchaseOrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemNo" Type="String" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catalogue" Relationship="ADModel.CataloguePurchaseOrderDetail" FromRole="PurchaseOrderDetail" ToRole="Catalogue" />
+          <NavigationProperty Name="Purchase" Relationship="ADModel.PurchasePurchaseOrderDetail" FromRole="PurchaseOrderDetail" ToRole="Purchase" />
+          <Property Name="PurchasePONo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ListOfUndisburse">
+          <Key>
+            <PropertyRef Name="ListOfUndisburseId" />
+          </Key>
+          <Property Name="ListOfUndisburseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisbursementDetNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DisbursementDetail" Relationship="ADModel.DisbursementDetailListOfUndisburse" FromRole="ListOfUndisburse" ToRole="DisbursementDetail" />
+        </EntityType>
+        <EntityType Name="Disbursement">
+          <Key>
+            <PropertyRef Name="DisbursementNo" />
+          </Key>
+          <Property Name="DisbursementNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeNo" Type="Int32" Nullable="false" />
+          <Property Name="DisbursementDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="DisbursementDetails" Relationship="ADModel.DisbursementDisbursementDetail" FromRole="Disbursement" ToRole="DisbursementDetail" />
+          <NavigationProperty Name="Department" Relationship="ADModel.DepartmentDisbursement" FromRole="Disbursement" ToRole="Department" />
+          <Property Name="DeptCode" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="StockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemNo" Type="String" Nullable="false" />
+          <Property Name="Balance" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="AmountChange" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catalogue" Relationship="ADModel.CatalogueInventory" FromRole="Inventory" ToRole="Catalogue" />
+          <Property Name="SupplierCode" Type="String" Nullable="false" />
+          <Property Name="Details" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="PurchaseSupplier">
+          <End Type="ADModel.Purchase" Role="Purchase" Multiplicity="1" />
+          <End Type="ADModel.Supplier" Role="Supplier" Multiplicity="1" />
+        </Association>
+        <Association Name="CatalogueInventory">
+          <End Type="ADModel.Catalogue" Role="Catalogue" Multiplicity="1" />
+          <End Type="ADModel.Inventory" Role="Inventory" Multiplicity="*" />
+        </Association>
+        <Association Name="DepartmentCollectionPoint">
+          <End Type="ADModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="ADModel.CollectionPoint" Role="CollectionPoint" Multiplicity="1" />
+        </Association>
+        <Association Name="DisbursementDetailListOfUndisburse">
+          <End Type="ADModel.DisbursementDetail" Role="DisbursementDetail" Multiplicity="0..1" />
+          <End Type="ADModel.ListOfUndisburse" Role="ListOfUndisburse" Multiplicity="0..1" />
+        </Association>
+        <Association Name="CatalogueRequisitionDetail">
+          <End Type="ADModel.Catalogue" Role="Catalogue" Multiplicity="1" />
+          <End Type="ADModel.RequisitionDetail" Role="RequisitionDetail" Multiplicity="0..1" />
+        </Association>
+        <Association Name="CataloguePurchaseOrderDetail">
+          <End Type="ADModel.Catalogue" Role="Catalogue" Multiplicity="1" />
+          <End Type="ADModel.PurchaseOrderDetail" Role="PurchaseOrderDetail" Multiplicity="0..1" />
+        </Association>
+        <Association Name="CatalogueDisbursementDetail">
+          <End Type="ADModel.DisbursementDetail" Role="DisbursementDetail" Multiplicity="0..1" />
+          <End Type="ADModel.Catalogue" Role="Catalogue" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Retrieval">
+          <Key>
+            <PropertyRef Name="RetrievalId" />
+          </Key>
+          <Property Name="RetrievalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeNo" Type="Int32" Nullable="false" />
+          <Property Name="RetrievalDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="RetrievalDetails" Relationship="ADModel.RetrievalRetrievalDetail" FromRole="Retrieval" ToRole="RetrievalDetail" />
+        </EntityType>
+        <Association Name="RetrievalDetailCatalogue">
+          <End Type="ADModel.RetrievalDetail" Role="RetrievalDetail" Multiplicity="0..1" />
+          <End Type="ADModel.Catalogue" Role="Catalogue" Multiplicity="1" />
+        </Association>
+        <Association Name="DepartmentEmployee">
+          <End Type="ADModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="ADModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DeptCode" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DepartmentDeptCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PurchasePurchaseOrderDetail">
+          <End Type="ADModel.Purchase" Role="Purchase" Multiplicity="1" />
+          <End Type="ADModel.PurchaseOrderDetail" Role="PurchaseOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchasePONo" />
+            </Principal>
+            <Dependent Role="PurchaseOrderDetail">
+              <PropertyRef Name="PurchasePONo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DisbursementDisbursementDetail">
+          <End Type="ADModel.Disbursement" Role="Disbursement" Multiplicity="1" />
+          <End Type="ADModel.DisbursementDetail" Role="DisbursementDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disbursement">
+              <PropertyRef Name="DisbursementNo" />
+            </Principal>
+            <Dependent Role="DisbursementDetail">
+              <PropertyRef Name="DisbursementNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CatalogueStockAdjustment">
+          <End Type="ADModel.Catalogue" Role="Catalogue" Multiplicity="1" />
+          <End Type="ADModel.StockAdjustment" Role="StockAdjustment" Multiplicity="1" />
+        </Association>
+        <Association Name="DepartmentRequisition">
+          <End Type="ADModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="ADModel.Requisition" Role="Requisition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DeptCode" />
+            </Principal>
+            <Dependent Role="Requisition">
+              <PropertyRef Name="DeptCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RequisitionId">
+          <End Type="ADModel.Requisition" Role="Requisition" Multiplicity="1" />
+          <End Type="ADModel.RequisitionDetail" Role="RequisitionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requisition">
+              <PropertyRef Name="RequisitionId" />
+            </Principal>
+            <Dependent Role="RequisitionDetail">
+              <PropertyRef Name="RequisitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepartmentDisbursement">
+          <End Type="ADModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="ADModel.Disbursement" Role="Disbursement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DeptCode" />
+            </Principal>
+            <Dependent Role="Disbursement">
+              <PropertyRef Name="DeptCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RetrievalRetrievalDetail">
+          <End Type="ADModel.Retrieval" Role="Retrieval" Multiplicity="1" />
+          <End Type="ADModel.RetrievalDetail" Role="RetrievalDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retrieval">
+              <PropertyRef Name="RetrievalId" />
+            </Principal>
+            <Dependent Role="RetrievalDetail">
+              <PropertyRef Name="RetrievalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ADModelStoreContainer" CdmEntityContainer="ADModelContainer">
+    <EntitySetMapping Name="StockAdjustments">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.StockAdjustment)">
+        <MappingFragment StoreEntitySet="StockAdjustments">
+          <ScalarProperty Name="StockAdjustmentId" ColumnName="StockAdjustmentId" />
+          <ScalarProperty Name="DateRequest" ColumnName="DateRequest" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="Discrepancy" ColumnName="Discrepancy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateOfDecision" ColumnName="DateOfDecision" />
+          <ScalarProperty Name="DateOfRequest" ColumnName="DateOfRequest" />
+          <ScalarProperty Name="ApproveBy" ColumnName="ApproveBy" />
+          <ScalarProperty Name="SubmittedBy" ColumnName="SubmittedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DisbursementDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.DisbursementDetail)">
+        <MappingFragment StoreEntitySet="DisbursementDetails">
+          <ScalarProperty Name="DisbursementDetNo" ColumnName="DisbursementDetNo" />
+          <ScalarProperty Name="QtyRequested" ColumnName="QtyRequested" />
+          <ScalarProperty Name="QtyReceived" ColumnName="QtyReceived" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="DisbursementNo" ColumnName="DisbursementNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RetrievalDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.RetrievalDetail)">
+        <MappingFragment StoreEntitySet="RetrievalDetails">
+          <ScalarProperty Name="RetrievalDetId" ColumnName="RetrievalDetId" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="RetrievedQty" ColumnName="RetrievedQty" />
+          <ScalarProperty Name="RequiredQty" ColumnName="RequiredQty" />
+          <ScalarProperty Name="RetrievalId" ColumnName="RetrievalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.Purchase)">
+        <MappingFragment StoreEntitySet="Purchases">
+          <ScalarProperty Name="PurchasePONo" ColumnName="PurchasePONo" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="OrderedBy" ColumnName="OrderedBy" />
+          <ScalarProperty Name="OrderedDate" ColumnName="OrderedDate" />
+          <ScalarProperty Name="DecidedBy" ColumnName="DecidedBy" />
+          <ScalarProperty Name="DecisionDate" ColumnName="DecisionDate" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers1">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.Supplier)">
+        <MappingFragment StoreEntitySet="Suppliers1">
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="SupplierAddress" ColumnName="SupplierAddress" />
+          <ScalarProperty Name="GstNo" ColumnName="GstNo" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments1">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.Department)">
+        <MappingFragment StoreEntitySet="Departments1">
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="DeptHead" ColumnName="DeptHead" />
+          <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+          <ScalarProperty Name="DeptRep" ColumnName="DeptRep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees1">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.Employee)">
+        <MappingFragment StoreEntitySet="Employees1">
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="DepartmentDeptCode" ColumnName="DepartmentDeptCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectionPoints">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.CollectionPoint)">
+        <MappingFragment StoreEntitySet="CollectionPoints">
+          <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requisitions">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.Requisition)">
+        <MappingFragment StoreEntitySet="Requisitions">
+          <ScalarProperty Name="RequisitionId" ColumnName="RequisitionId" />
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateOfSubmitted" ColumnName="DateOfSubmitted" />
+          <ScalarProperty Name="DateOfDecision" ColumnName="DateOfDecision" />
+          <ScalarProperty Name="DecidedBy" ColumnName="DecidedBy" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequisitionDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.RequisitionDetail)">
+        <MappingFragment StoreEntitySet="RequisitionDetails">
+          <ScalarProperty Name="RequisitionDetailId" ColumnName="RequisitionDetailId" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="RequisitionId" ColumnName="RequisitionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalogues">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.Catalogue)">
+        <MappingFragment StoreEntitySet="Catalogues">
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+          <ScalarProperty Name="ReorderQty" ColumnName="ReorderQty" />
+          <ScalarProperty Name="UnitMeasure" ColumnName="UnitMeasure" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="SupPrice1" ColumnName="SupPrice1" />
+          <ScalarProperty Name="SupPrice2" ColumnName="SupPrice2" />
+          <ScalarProperty Name="SupPrice3" ColumnName="SupPrice3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.PurchaseOrderDetail)">
+        <MappingFragment StoreEntitySet="PurchaseOrderDetails">
+          <ScalarProperty Name="PurchaseOrderDetailId" ColumnName="PurchaseOrderDetailId" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PurchasePONo" ColumnName="PurchasePONo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListOfUndisburses">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.ListOfUndisburse)">
+        <MappingFragment StoreEntitySet="ListOfUndisburses">
+          <ScalarProperty Name="ListOfUndisburseId" ColumnName="ListOfUndisburseId" />
+          <ScalarProperty Name="DisbursementDetNo" ColumnName="DisbursementDetNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disbursements">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.Disbursement)">
+        <MappingFragment StoreEntitySet="Disbursements">
+          <ScalarProperty Name="DisbursementNo" ColumnName="DisbursementNo" />
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="DisbursementDate" ColumnName="DisbursementDate" />
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.Inventory)">
+        <MappingFragment StoreEntitySet="Inventories">
+          <ScalarProperty Name="StockId" ColumnName="StockId" />
+          <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="AmountChange" ColumnName="AmountChange" />
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Retrievals">
+      <EntityTypeMapping TypeName="IsTypeOf(ADModel.Retrieval)">
+        <MappingFragment StoreEntitySet="Retrievals">
+          <ScalarProperty Name="RetrievalId" ColumnName="RetrievalId" />
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="RetrievalDate" ColumnName="RetrievalDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PurchaseSupplier" TypeName="ADModel.PurchaseSupplier" StoreEntitySet="Purchases">
+      <EndProperty Name="Supplier">
+        <ScalarProperty Name="SupplierCode" ColumnName="Supplier_SupplierCode" />
+      </EndProperty>
+      <EndProperty Name="Purchase">
+        <ScalarProperty Name="PurchasePONo" ColumnName="PurchasePONo" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CatalogueInventory" TypeName="ADModel.CatalogueInventory" StoreEntitySet="Inventories">
+      <EndProperty Name="Catalogue">
+        <ScalarProperty Name="ItemNo" ColumnName="Catalogue_ItemNo" />
+      </EndProperty>
+      <EndProperty Name="Inventory">
+        <ScalarProperty Name="StockId" ColumnName="StockId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DepartmentCollectionPoint" TypeName="ADModel.DepartmentCollectionPoint" StoreEntitySet="Departments1">
+      <EndProperty Name="CollectionPoint">
+        <ScalarProperty Name="CollectionId" ColumnName="CollectionPoint_CollectionId" />
+      </EndProperty>
+      <EndProperty Name="Department">
+        <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DisbursementDetailListOfUndisburse" TypeName="ADModel.DisbursementDetailListOfUndisburse" StoreEntitySet="ListOfUndisburses">
+      <EndProperty Name="DisbursementDetail">
+        <ScalarProperty Name="DisbursementDetNo" ColumnName="DisbursementDetail_DisbursementDetNo" />
+      </EndProperty>
+      <EndProperty Name="ListOfUndisburse">
+        <ScalarProperty Name="ListOfUndisburseId" ColumnName="ListOfUndisburseId" />
+      </EndProperty>
+      <Condition ColumnName="DisbursementDetail_DisbursementDetNo" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CatalogueRequisitionDetail" TypeName="ADModel.CatalogueRequisitionDetail" StoreEntitySet="RequisitionDetails">
+      <EndProperty Name="Catalogue">
+        <ScalarProperty Name="ItemNo" ColumnName="Catalogue_ItemNo" />
+      </EndProperty>
+      <EndProperty Name="RequisitionDetail">
+        <ScalarProperty Name="RequisitionDetailId" ColumnName="RequisitionDetailId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CataloguePurchaseOrderDetail" TypeName="ADModel.CataloguePurchaseOrderDetail" StoreEntitySet="PurchaseOrderDetails">
+      <EndProperty Name="Catalogue">
+        <ScalarProperty Name="ItemNo" ColumnName="Catalogue_ItemNo" />
+      </EndProperty>
+      <EndProperty Name="PurchaseOrderDetail">
+        <ScalarProperty Name="PurchaseOrderDetailId" ColumnName="PurchaseOrderDetailId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CatalogueDisbursementDetail" TypeName="ADModel.CatalogueDisbursementDetail" StoreEntitySet="DisbursementDetails">
+      <EndProperty Name="Catalogue">
+        <ScalarProperty Name="ItemNo" ColumnName="Catalogue_ItemNo" />
+      </EndProperty>
+      <EndProperty Name="DisbursementDetail">
+        <ScalarProperty Name="DisbursementDetNo" ColumnName="DisbursementDetNo" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RetrievalDetailCatalogue" TypeName="ADModel.RetrievalDetailCatalogue" StoreEntitySet="RetrievalDetails">
+      <EndProperty Name="Catalogue">
+        <ScalarProperty Name="ItemNo" ColumnName="Catalogue_ItemNo" />
+      </EndProperty>
+      <EndProperty Name="RetrievalDetail">
+        <ScalarProperty Name="RetrievalDetId" ColumnName="RetrievalDetId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CatalogueStockAdjustment" TypeName="ADModel.CatalogueStockAdjustment" StoreEntitySet="Catalogues">
+      <EndProperty Name="StockAdjustment">
+        <ScalarProperty Name="StockAdjustmentId" ColumnName="StockAdjustment_StockAdjustmentId" />
+      </EndProperty>
+      <EndProperty Name="Catalogue">
+        <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

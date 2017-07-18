@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="be1c97d7c4c44814aaca9b7869a64eb6" Name="Diagram1" ZoomLevel="86" >
+        <EntityTypeShape EntityType="ADModel.StockAdjustment" Width="2.125" PointX="11.375" PointY="6.875" />
+        <EntityTypeShape EntityType="ADModel.DisbursementDetail" Width="2.875" PointX="0.5" PointY="2.5" />
+        <EntityTypeShape EntityType="ADModel.RetrievalDetail" Width="1.5" PointX="11.625" PointY="3.625" />
+        <EntityTypeShape EntityType="ADModel.Purchase" Width="2.5" PointX="15.875" PointY="0.75" />
+        <EntityTypeShape EntityType="ADModel.Supplier" Width="1.5" PointX="16" PointY="4.25" />
+        <EntityTypeShape EntityType="ADModel.Department" Width="1.5" PointX="3.25" PointY="5.875" />
+        <EntityTypeShape EntityType="ADModel.Employee" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ADModel.CollectionPoint" Width="1.5" PointX="6.875" PointY="5.5" />
+        <EntityTypeShape EntityType="ADModel.Requisition" Width="2.375" PointX="4.125" PointY="1.375" />
+        <EntityTypeShape EntityType="ADModel.RequisitionDetail" Width="2.25" PointX="7.125" PointY="1.625" />
+        <EntityTypeShape EntityType="ADModel.Catalogue" Width="1.625" PointX="9.75" PointY="0.625" />
+        <EntityTypeShape EntityType="ADModel.PurchaseOrderDetail" Width="2.125" PointX="12.875" PointY="0.625" />
+        <EntityTypeShape EntityType="ADModel.ListOfUndisburse" Width="1.75" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ADModel.Disbursement" Width="2.125" PointX="0.5" PointY="6.125" />
+        <EntityTypeShape EntityType="ADModel.Inventory" Width="1.5" PointX="8.875" PointY="5.75" />
+        <AssociationConnector Association="ADModel.PurchaseSupplier" />
+        <AssociationConnector Association="ADModel.CatalogueInventory" />
+        <AssociationConnector Association="ADModel.DepartmentCollectionPoint" />
+        <AssociationConnector Association="ADModel.DisbursementDetailListOfUndisburse" />
+        <AssociationConnector Association="ADModel.CatalogueRequisitionDetail" />
+        <AssociationConnector Association="ADModel.CataloguePurchaseOrderDetail" />
+        <AssociationConnector Association="ADModel.CatalogueDisbursementDetail" ManuallyRouted="true" >
+          <ConnectorPoint PointX="3.375" PointY="4.9612939453125" />
+          <ConnectorPoint PointX="3.5017140401613029" PointY="4.9612939453125" />
+          <ConnectorPoint PointX="3.5017140401613029" PointY="0.45887154790191076" />
+          <ConnectorPoint PointX="10.999996249999999" PointY="0.45887154790191076" />
+          <ConnectorPoint PointX="10.999996249999999" PointY="0.62499999999999978" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ADModel.Retrieval" Width="1.5" PointX="14.125" PointY="3.875" />
+        <AssociationConnector Association="ADModel.RetrievalDetailCatalogue" />
+        <AssociationConnector Association="ADModel.DepartmentEmployee" />
+        <AssociationConnector Association="ADModel.PurchasePurchaseOrderDetail" />
+        <AssociationConnector Association="ADModel.DisbursementDisbursementDetail" />
+        <AssociationConnector Association="ADModel.CatalogueStockAdjustment" ManuallyRouted="true" >
+          <ConnectorPoint PointX="10.6406225" PointY="3.7590950520833331" />
+          <ConnectorPoint PointX="10.6406225" PointY="9.3816943359375" />
+          <ConnectorPoint PointX="11.375" PointY="9.3816943359375" />
+        </AssociationConnector>
+        <AssociationConnector Association="ADModel.DepartmentRequisition" />
+        <AssociationConnector Association="ADModel.RequisitionId" />
+        <AssociationConnector Association="ADModel.DepartmentDisbursement" />
+        <AssociationConnector Association="ADModel.RetrievalRetrievalDetail" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
